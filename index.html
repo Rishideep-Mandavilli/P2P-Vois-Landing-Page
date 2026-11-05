@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vois — Autonomous Phone-to-Peer Offline Voice Network</title>
+  <meta name="description" content="Offline peer-to-peer voice calling and emergency distress network operating over Wi-Fi Direct and Bluetooth. Zero cellular, zero internet, zero SIM required.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="#" class="brand-logo">
+        <svg class="logo-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="16" cy="16" r="14" stroke="#10B981" stroke-width="2" stroke-dasharray="2 3"/>
+          <circle cx="16" cy="16" r="8" stroke="#38BDF8" stroke-width="2"/>
+          <circle cx="16" cy="16" r="3" fill="#10B981"/>
+          <path d="M16 4V1M16 31V28M4 16H1M31 16H28" stroke="#10B981" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-name">VOIS</span>
+        <span class="brand-tag">P2P RADIO</span>
+      </a>
+
+      <div class="network-status-badge">
+        <span class="status-dot"></span>
+        <span class="status-label">Autonomous Radio Mesh Active</span>
+      </div>
+
+      <nav class="main-nav">
+        <a href="#problem" class="nav-link">The Breakdown</a>
+        <a href="#suffering" class="nav-link">Human Toll</a>
+        <a href="#solution" class="nav-link">Radio Engine</a>
+        <a href="#simulator" class="nav-link">Live Mesh Simulator</a>
+        <a href="#architecture" class="nav-link">Architecture</a>
+        <a href="#impact" class="nav-link">Impact</a>
+        <a href="#business" class="nav-link">Business & Scale</a>
+        <a href="#download" class="nav-cta">Download APK</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+      <div class="hero-container">
+        <h1 class="hero-headline">
+          When the towers collapse, your phone becomes the network.
+        </h1>
+
+        <p class="hero-subtext">
+          In cyclones, flash floods, earthquakes, and crowd surges, conventional cellular infrastructure dies within minutes. Vois restores immediate, full-duplex voice calling between everyday smartphones over built-in Wi-Fi Direct and Bluetooth—with zero cell towers, zero internet, and zero SIM cards.
+        </p>
+
+        <div class="hero-actions">
+          <a href="downloads/vois-v1.1.0+2.apk" class="btn btn-primary" download="vois-v1.1.0+2.apk">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+            </svg>
+            <span>Download APK (v1.1.0+2)</span>
+            <span class="btn-meta">49.4 MB • Android 8+</span>
+          </a>
+
+          <a href="#simulator" class="btn btn-secondary">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"/>
+            </svg>
+            <span>Launch Radio Mesh Simulator</span>
+          </a>
+        </div>
+
+        <!-- Live Field Telemetry Bar -->
+        <div class="telemetry-bar">
+          <div class="telemetry-item">
+            <span class="telemetry-value">0%</span>
+            <span class="telemetry-label">Cellular or Cloud Reliance</span>
+          </div>
+          <div class="telemetry-divider"></div>
+          <div class="telemetry-item">
+            <span class="telemetry-value">20ms</span>
+            <span class="telemetry-label">Audio Frame Cadence</span>
+          </div>
+          <div class="telemetry-divider"></div>
+          <div class="telemetry-item">
+            <span class="telemetry-value">~50m</span>
+            <span class="telemetry-label">Wi-Fi Direct Link Radius</span>
+          </div>
+          <div class="telemetry-divider"></div>
+          <div class="telemetry-item">
+            <span class="telemetry-value">&lt;1.2%</span>
+            <span class="telemetry-label">Relay Battery Drain / Hr</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 1: THE BREAKDOWN (THE PAIN) -->
+    <section id="problem" class="narrative-chapter">
+      <div class="chapter-container">
+        <div class="chapter-prologue">
+          <h2 class="chapter-title">The Fatal Fragility of Modern Connectivity</h2>
+          <p class="chapter-intro">
+            Modern society treats cellular reception as a guaranteed utility. In reality, modern mobile telecommunications rest upon an exceptionally fragile chain of physical power lines, sub-station diesel generators, and buried fiber-optic backhauls. A single sudden disaster severs them all.
+          </p>
+        </div>
+
+        <div class="breakdown-grid">
+          <article class="breakdown-story">
+            <h3 class="story-title">
+              <svg class="story-title-icon alert-danger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+              <span>Grid Failure Cascades</span>
+            </h3>
+            <p class="story-body">
+              Cyclones, flooding, and seismic shocks take down high-voltage power lines within seconds. Base stations burn through modest backup batteries in under 45 minutes, creating an absolute regional communication blackout precisely when 911 calls peak.
+            </p>
+          </article>
+
+          <article class="breakdown-story">
+            <h3 class="story-title">
+              <svg class="story-title-icon alert-warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+              <span>The Crowd Surge Paradox</span>
+            </h3>
+            <p class="story-body">
+              Even with 100% operational hardware, when 40,000+ people converge into a stadium, marathon, or religious pilgrimage (like the Kumbh Mela), RF spectrum capacity saturates immediately. Cellular radios report five bars, yet zero packets pass through.
+            </p>
+          </article>
+
+          <article class="breakdown-story">
+            <h3 class="story-title">
+              <svg class="story-title-icon alert-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/>
+              </svg>
+              <span>Why Existing Options Abandon You</span>
+            </h3>
+            <p class="story-body">
+              WhatsApp and cellular calling depend entirely on distant base towers. Dedicated walkie-talkies cost ₹5,000 to ₹15,000 and sit in locked security closets. Satellite pucks charge ₹3,000 monthly subscriptions. LoRa is text-only. The moment chaos strikes, voice fails.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 2: THE HUMAN TOLL (THE SUFFERING) -->
+    <section id="suffering" class="narrative-chapter dark-contrast">
+      <div class="chapter-container">
+        <div class="chapter-prologue">
+          <h2 class="chapter-title">78% of Disaster Mortalities Occur in the First Six Hours</h2>
+          <p class="chapter-intro">
+            Search and rescue teams call it the Golden Window. When communication fails, the disaster does not just destroy buildings—it isolates human beings across microscopic physical distances.
+          </p>
+        </div>
+
+        <div class="suffering-narratives">
+          <div class="narrative-card">
+            <div class="narrative-badge">Case Scenario 01</div>
+            <h3 class="narrative-headline">Separated Across 100 Meters of Floodwater</h3>
+            <p class="narrative-text">
+              During the Chennai and Kerala monsoon floods, families were stranded on adjacent rooftop terraces just 80 to 120 meters apart. Cellular towers were submerged. Shouting was impossible over the torrential roar of rain and engine noise. With zero connectivity, they could neither verify survival nor coordinate rooftop evacuation ladders.
+            </p>
+          </div>
+
+          <div class="narrative-card">
+            <div class="narrative-badge">Case Scenario 02</div>
+            <h3 class="narrative-headline">The Fatal Battery Drain Loop</h3>
+            <p class="narrative-text">
+              A survivor trapped under collapsed masonry after a seismic tremor has 22% smartphone battery. The device's cellular radio boosts transmission power to maximum (Class 4 RF output) desperately hunting for a destroyed cell tower. In less than 90 minutes, the phone dies in the dark—destroying both the beacon and the flashlight.
+            </p>
+          </div>
+
+          <div class="narrative-card">
+            <div class="narrative-badge">Case Scenario 03</div>
+            <h3 class="narrative-headline">The Panic & Literacy Barrier</h3>
+            <p class="narrative-text">
+              Text-based emergency messengers demand clear eyesight, fine motor finger coordination, and literacy. An injured worker in a smoke-filled metro basement or an elderly civilian in shock cannot type SMS coordinates. They need a human voice: press one button, speak, and hear another human confirm rescue.
+            </p>
+          </div>
+        </div>
+
+        <div class="stat-callout-strip">
+          <div class="stat-unit">
+            <span class="stat-num">200 Million+</span>
+            <span class="stat-desc">Civilians exposed annually to severe floods, cyclones, and quakes</span>
+          </div>
+          <div class="stat-unit">
+            <span class="stat-num">50 Million+</span>
+            <span class="stat-desc">Pilgrims & event participants subjected to severe crowd blackout risks</span>
+          </div>
+          <div class="stat-unit">
+            <span class="stat-num">30 Million+</span>
+            <span class="stat-desc">Industrial personnel operating daily in concrete, underground, and mine dead zones</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 3: THE SOLUTION (THE BREAKTHROUGH) -->
+    <section id="solution" class="narrative-chapter">
+      <div class="chapter-container">
+        <div class="chapter-prologue">
+          <h2 class="chapter-title">An Indestructible Voice Mesh in Every Pocket</h2>
+          <p class="chapter-intro">
+            Vois re-engineers standard consumer smartphones into autonomous, direct radio transceivers. By combining Android Wi-Fi Direct and Bluetooth Classic RFCOMM behind a unified byte stream, phones link peer-to-peer to create an organic, self-healing communication grid.
+          </p>
+        </div>
+
+        <div class="solution-grid">
+          <div class="solution-feature">
+            <div class="feature-header">
+              <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/>
+              </svg>
+              <h3 class="feature-name">Dual-Radio Autonomous Transport</h3>
+            </div>
+            <p class="feature-body">
+              <strong>Wi-Fi Direct (Primary):</strong> Establishes high-throughput TCP socket tunnels across ~50 meters in open air at port 8988.<br>
+              <strong>Bluetooth RFCOMM (Fallback):</strong> Automatically takes over across ~10 meters via SPP UUID <code>00001101</code> when Wi-Fi is obstructed. Both hide seamlessly behind a single <code>ByteChannel</code> abstraction.
+            </p>
+          </div>
+
+          <div class="solution-feature">
+            <div class="feature-header">
+              <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 6v6l4 2"/>
+              </svg>
+              <h3 class="feature-name">Zero-CPU Undecoded Relays</h3>
+            </div>
+            <p class="feature-body">
+              When a middle phone relays voice packets between two distant nodes (Node A &rarr; Middle Node &rarr; Node B), it <strong>never decodes</strong> the audio to PCM or runs DSP filters. Raw compressed bytes are streamed directly downstream, consuming &lt;1.2% battery/hr and preserving the relay node's life.
+            </p>
+          </div>
+
+          <div class="solution-feature">
+            <div class="feature-header">
+              <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8"/>
+              </svg>
+              <h3 class="feature-name">Voice-First Push-to-Talk (PTT)</h3>
+            </div>
+            <p class="feature-body">
+              Full-duplex calling for two-way conversation or hold-to-talk Walkie-Talkie mode. Optimized for high-stress panic situations with zero menus, zero login screens, and zero text keyboards.
+            </p>
+          </div>
+
+          <div class="solution-feature">
+            <div class="feature-header">
+              <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+              <h3 class="feature-name">Pocket-Survivable SOS Siren & GPS</h3>
+            </div>
+            <p class="feature-body">
+              Six coded emergency presets (Trapped, Medical, Fire, Flood, Need Water, Safe). Bypasses Android Do Not Disturb, ramps device speaker volume to 100%, triggers tactile pulsing vibration, and broadcasts cached GPS coordinates.
+            </p>
+          </div>
+
+          <div class="solution-feature">
+            <div class="feature-header">
+              <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+              <h3 class="feature-name">Store-and-Forward Offline Queue</h3>
+            </div>
+            <p class="feature-body">
+              Triggering an SOS in a deep basement with no phone currently in range does not drop the distress signal. Packets are held in a memory FIFO queue with a 30-minute TTL. The instant another person with a smartphone walks within range, the SOS transmits automatically.
+            </p>
+          </div>
+
+          <div class="solution-feature">
+            <div class="feature-header">
+              <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                <line x1="12" y1="22.08" x2="12" y2="12"/>
+              </svg>
+              <h3 class="feature-name">Viral Offline Radio APK Beamer</h3>
+            </div>
+            <p class="feature-body">
+              How do survivors install the app when the internet is completely dead? Vois contains an integrated direct radio installer beamer: one equipped device can broadcast the full Android APK to 100+ surrounding phones completely offline in under 30 seconds.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE SHOWCASE: LIVE RADIO MESH SIMULATOR -->
+    <section id="simulator" class="simulator-section">
+      <div class="simulator-container">
+        <div class="chapter-prologue">
+          <h2 class="chapter-title">Interactive Mesh & Voice Audio Simulator</h2>
+          <p class="chapter-intro">
+            Experience how the radio mesh behaves when cellular grids die. Cut the cell tower power, transmit encrypted voice frames through zero-CPU relay nodes, and test the Push-To-Talk radio audio feedback.
+          </p>
+        </div>
+
+        <div class="simulator-card">
+          <!-- Simulator Controls Header -->
+          <div class="sim-header">
+            <div class="sim-control-group">
+              <button id="btn-toggle-blackout" class="sim-btn sim-btn-danger">
+                <svg class="sim-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18.36 6.64a9 9 0 1 1-12.73 0M12 2v10"/>
+                </svg>
+                <span id="blackout-btn-text">Simulate Grid Blackout</span>
+              </button>
+
+              <button id="btn-send-packet" class="sim-btn sim-btn-primary">
+                <svg class="sim-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5 3 19 12 5 21 5 3"/>
+                </svg>
+                <span>Transmit 20ms Voice Packet</span>
+              </button>
+
+              <button id="btn-reset-mesh" class="sim-btn sim-btn-neutral">
+                <span>Reset Simulation</span>
+              </button>
+            </div>
+
+            <div class="sim-status-display">
+              <span class="sim-status-label">Network State:</span>
+              <span id="sim-state-text" class="sim-state-value normal">Cellular Grid Online</span>
+            </div>
+          </div>
+
+          <!-- Canvas Display -->
+          <div class="canvas-wrapper">
+            <canvas id="meshCanvas" width="900" height="420" aria-label="Interactive mesh network canvas showing phone nodes and radio link packets"></canvas>
+            
+            <div class="canvas-legend">
+              <div class="legend-item"><span class="legend-color tower-normal"></span> Cell Tower</div>
+              <div class="legend-item"><span class="legend-color node-victim"></span> Trapped Node A</div>
+              <div class="legend-item"><span class="legend-color node-relay"></span> Zero-CPU Relay B</div>
+              <div class="legend-item"><span class="legend-color node-rescue"></span> Responder Node C</div>
+              <div class="legend-item"><span class="legend-color link-wifi"></span> Wi-Fi Direct (~50m)</div>
+            </div>
+          </div>
+
+          <!-- Interactive Hardware PTT & SOS Tester -->
+          <div class="sim-submodules">
+            <!-- PTT Walkie-Talkie Module -->
+            <div class="submodule-box">
+              <h3 class="submodule-title">Push-to-Talk (PTT) Audio Simulator</h3>
+              <p class="submodule-desc">Hold the button to open radio channel, speak, and hear the real-time synthesized radio squelch and mic click:</p>
+              
+              <div class="ptt-control-area">
+                <button id="pttButton" class="ptt-trigger-btn">
+                  <svg class="ptt-mic-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8"/>
+                  </svg>
+                  <span id="ptt-label">HOLD TO TALK</span>
+                </button>
+                <div class="ptt-audio-wave" id="audioWaveArea">
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                </div>
+              </div>
+              <span id="ptt-feedback" class="feedback-text">Ready. Audio synthesized via Web Audio API.</span>
+            </div>
+
+            <!-- SOS Preset Code Trigger -->
+            <div class="submodule-box">
+              <h3 class="submodule-title">Pocket-Survivable SOS Beacons</h3>
+              <p class="submodule-desc">Select a preset to inspect the wire payload packaged with GPS fix & DND bypass:</p>
+
+              <div class="sos-preset-selector">
+                <button class="sos-preset-btn active" data-code="TRAPPED" data-desc="Pinned under debris, structural collapse">Trapped</button>
+                <button class="sos-preset-btn" data-code="MEDICAL" data-desc="Severe injury, bleeding, or unconscious">Medical</button>
+                <button class="sos-preset-btn" data-code="FLOOD" data-desc="Rising water levels, stranded on roof">Flood</button>
+                <button class="sos-preset-btn" data-code="FIRE" data-desc="Active fire or smoke engulfment">Fire</button>
+                <button class="sos-preset-btn" data-code="WATER" data-desc="Critical dehydration or ration exhaustion">Need Water</button>
+                <button class="sos-preset-btn" data-code="SAFE" data-desc="Evacuated safely, reporting status">Safe</button>
+              </div>
+
+              <div class="sos-payload-card">
+                <div class="sos-code-header">
+                  <span class="sos-code-pill" id="sosCodePill">CODE 0x01: TRAPPED</span>
+                  <span class="sos-dnd-flag">DND OVERRIDE: ACTIVE</span>
+                </div>
+                <div class="sos-payload-json" id="sosPayloadJson">
+{
+  "beacon_type": "SOS_DISTRESS",
+  "preset": "TRAPPED",
+  "timestamp_utc": "2026-11-06T02:58:14Z",
+  "gps": {"lat": 13.0827, "lon": 80.2707, "acc_m": 4.2},
+  "battery_pct": 18,
+  "hops_remaining": 5,
+  "audio_siren_db": 100
+}
+                </div>
+                <button id="btn-fire-sos" class="btn btn-danger-sm">
+                  Simulate SOS Distress Siren
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 4: TECHNICAL BLUEPRINT & SYSTEM ARCHITECTURE -->
+    <section id="architecture" class="narrative-chapter">
+      <div class="chapter-container">
+        <div class="chapter-prologue">
+          <h2 class="chapter-title">Engineered for Zero CPU Waste and Maximum Survivability</h2>
+          <p class="chapter-intro">
+            A peer-to-peer radio protocol in a disaster zone has strict engineering constraints: volunteer phones cannot afford battery exhaustion, and audio cannot stutter over unstable RF reflections.
+          </p>
+        </div>
+
+        <!-- Technical Diagram Display -->
+        <div class="diagram-feature-box">
+          <img src="assets/solution_architecture.png" alt="Vois Solution Architecture: Victim phone audio pipeline to volunteer zero-CPU undecoded relay, forwarding to rescue team decoder" class="technical-img">
+          <div class="diagram-caption">
+            Figure 1: Full-Duplex Audio Pipeline and Zero-CPU Undecoded Packet Relaying across Wi-Fi Direct and Bluetooth Classic.
+          </div>
+        </div>
+
+        <div class="tech-spec-cards">
+          <div class="tech-card">
+            <h3 class="tech-card-title">Audio Pipeline & Compression</h3>
+            <p class="tech-card-body">
+              Audio is sampled at <strong>16 kHz mono 16-bit PCM</strong>. Every 20ms chunk (320 samples, 640 raw bytes) is compressed via an adaptive <strong>8-bit ADPCM codec</strong> down to 320 bytes. With our 3-byte binary frame header, each packet is exactly <strong>323 bytes</strong> (~129 kbps wire rate).
+            </p>
+            <div class="packet-wire-visual">
+              <span class="packet-field type-field">[1B Type]</span>
+              <span class="packet-field len-field">[2B LE Length]</span>
+              <span class="packet-field data-field">[320B ADPCM Audio / Cipher Payload]</span>
+            </div>
+          </div>
+
+          <div class="tech-card">
+            <h3 class="tech-card-title">40ms Jitter Buffer & Socket Tuning</h3>
+            <p class="tech-card-body">
+              Radio propagation in rubble environments suffers from RF reflections and channel fading. The Vois receiver maintains a strict <strong>40ms jitter buffer (2 audio frames)</strong>, absorbing packet arrival timing fluctuations while preserving conversation flow without noticeable conversational lag.
+            </p>
+          </div>
+
+          <div class="tech-card">
+            <h3 class="tech-card-title">Zero-CPU Undecoded Forwarding</h3>
+            <p class="tech-card-body">
+              In multi-hop paths, middle phones read the framing header and pump raw payload bytes directly from socket input to socket output. <strong>No PCM decoding, no resampling, no FFT.</strong> Relay phones preserve battery life for multiple days of emergency operation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 5: HUMANITARIAN & OPERATIONAL IMPACT -->
+    <section id="impact" class="narrative-chapter dark-contrast">
+      <div class="chapter-container">
+        <div class="chapter-prologue">
+          <h2 class="chapter-title">Bridging Civilian Survival and First-Responder Command</h2>
+          <p class="chapter-intro">
+            Vois provides immediate operational value to both vulnerable civilians and institutional emergency agencies who cannot wait hours for mobile cell towers (Cells On Wheels) to be deployed.
+          </p>
+        </div>
+
+        <!-- Problem Scope Graphic -->
+        <div class="diagram-feature-box">
+          <img src="assets/problem_scope.png" alt="Market scope and affected populations: 200M disaster victims, 50M crowd surge exposures, 30M industrial dead zones" class="technical-img">
+        </div>
+
+        <div class="impact-beneficiary-grid">
+          <div class="beneficiary-card">
+            <h3 class="beneficiary-heading">Trapped Civilians: Immediate Voice Verification & Location Beacon</h3>
+            <ul class="beneficiary-bullets">
+              <li>Reconnect across collapsed floors, debris, and flooded roadways within 50–150 meters.</li>
+              <li>Automated SOS broadcasts accurate GPS coordinates even when device battery is below 5%.</li>
+              <li>Complete removal of language and literacy barriers through voice-first Push-To-Talk.</li>
+            </ul>
+          </div>
+
+          <div class="beneficiary-card">
+            <h3 class="beneficiary-heading">First Responders: Instant Tactical Channel Without Waiting for COWs</h3>
+            <ul class="beneficiary-bullets">
+              <li>Deploy rescue sweeps immediately upon arrival without waiting for truck-mounted cell towers.</li>
+              <li>One-to-many broadcast alerts to direct field squads across active disaster zones.</li>
+              <li>Autonomous discovery pairs squad devices within 2 seconds without manual Wi-Fi password entry.</li>
+            </ul>
+          </div>
+
+          <div class="beneficiary-card">
+            <h3 class="beneficiary-heading">Faith Gatherings & Festivals: Crowd Surge Management in Saturated RF Airwaves</h3>
+            <ul class="beneficiary-bullets">
+              <li>Equips 500+ volunteer marshals at Kumbh Mela, Hajj, and stadiums with free walkie-talkie functionality.</li>
+              <li>Bypasses overloaded 4G/5G base stations by routing volunteer voice directly phone-to-phone.</li>
+              <li>Saves event organizers ₹15 Lakhs+ in hardware walkie-talkie rental costs.</li>
+            </ul>
+          </div>
+
+          <div class="beneficiary-card">
+            <h3 class="beneficiary-heading">Sub-surface Industrial Workforces: Reliable Comms Inside Concrete Basements</h3>
+            <ul class="beneficiary-bullets">
+              <li>Guarantees voice links in deep mining shafts, metro rail tunnels, and multi-level parking basements.</li>
+              <li>Operates completely independent of corporate IT networks and outside fiber connections.</li>
+              <li>End-to-end AES-256-CBC envelope encryption keeps internal communications private.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 6: SUSTAINABLE BUSINESS MODEL & SCALE -->
+    <section id="business" class="narrative-chapter">
+      <div class="chapter-container">
+        <div class="chapter-prologue">
+          <h2 class="chapter-title">Sustainable Scale: Public Good Meets Enterprise Utility</h2>
+          <p class="chapter-intro">
+            A disaster communication network must be freely accessible to every civilian on earth, yet supported by a viable enterprise and municipal business model to fund continuous protocol engineering.
+          </p>
+        </div>
+
+        <!-- Business Diagrams: Funnel and Roadmap -->
+        <div class="business-dual-media">
+          <div class="diagram-feature-box">
+            <img src="assets/gtm_funnel.png" alt="Vois Go-to-Market Strategy Funnel: Institutional pilots, event deployments, viral offline beaming" class="technical-img">
+            <div class="diagram-caption">Distribution Funnel: Institutional adoption drives viral offline reach.</div>
+          </div>
+          <div class="diagram-feature-box">
+            <img src="assets/roadmap_timeline.png" alt="Development and Growth Roadmap: Month 3 to Month 6 Milestones" class="technical-img">
+            <div class="diagram-caption">Roadmap: Engineering sprints leading to state disaster management pilots.</div>
+          </div>
+        </div>
+
+        <div class="business-model-columns">
+          <div class="tier-card tier-civic">
+            <h3 class="tier-name">Civilian Public Good <span class="tier-inline-tag">Free Forever</span></h3>
+            <p class="tier-price">₹0 / $0</p>
+            <p class="tier-desc">Available to any person with an Android phone worldwide. Because safety should never depend on a subscription.</p>
+            <ul class="tier-features">
+              <li>Direct Wi-Fi Direct & Bluetooth RFCOMM calling</li>
+              <li>One-touch Push-To-Talk walkie-talkie</li>
+              <li>Pocket-survivable SOS siren with GPS bundling</li>
+              <li>Zero-CPU multi-hop audio relaying</li>
+              <li>Built-in offline APK radio beamer</li>
+              <li>Zero telemetry, zero ads, zero accounts</li>
+            </ul>
+          </div>
+
+          <div class="tier-card tier-enterprise">
+            <h3 class="tier-name">Command Fleet & Industrial Console <span class="tier-inline-tag enterprise">Municipal & Enterprise</span></h3>
+            <p class="tier-price">Annual Municipal / Enterprise Contract</p>
+            <p class="tier-desc">Hardware consoles, fleet encryption keys, and desktop incident management for State Disaster Authorities (SDMA), municipal police, mining operations, and industrial plant crews.</p>
+            <ul class="tier-features">
+              <li>Tactical Windows/Linux command dispatch console</li>
+              <li>Dedicated organizational encryption key rings (AES-256)</li>
+              <li>Real-time mesh topology & volunteer location mapping</li>
+              <li>Hardware drone gateway & Raspberry Pi mesh relay nodes</li>
+              <li>Incident field analytics, RTT telemetry, & audit logging</li>
+              <li>24/7 dedicated mission engineering support</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="market-tam-strip">
+          <div class="tam-box">
+            <span class="tam-label">TAM (Total Addressable Market)</span>
+            <span class="tam-value">$22.4 Billion</span>
+            <span class="tam-sub">Global Disaster Tech, Critical Communications & Off-Grid Telemetry</span>
+          </div>
+          <div class="tam-box">
+            <span class="tam-label">SAM (Serviceable Addressable Market)</span>
+            <span class="tam-value">$4.2 Billion</span>
+            <span class="tam-sub">Off-Grid Civilian Safety & Local Workforce Communications</span>
+          </div>
+          <div class="tam-box">
+            <span class="tam-label">SOM (Serviceable Obtainable Market)</span>
+            <span class="tam-value">$380 Million</span>
+            <span class="tam-sub">South Asian Public Safety, Monsoon Relief & Event Safety Market</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 7: COMPETITIVE MATRIX -->
+    <section class="narrative-chapter dark-contrast">
+      <div class="chapter-container">
+        <div class="chapter-prologue">
+          <h2 class="chapter-title">Why Vois Outclasses Traditional Alternatives</h2>
+          <p class="chapter-intro">
+            Existing emergency communication options either fail during total infrastructure collapse or require dedicated, expensive hardware that ordinary citizens do not possess.
+          </p>
+        </div>
+
+        <div class="table-container">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Key Metric / Capability</th>
+                <th>Standard Apps (WhatsApp)</th>
+                <th>LoRa / Meshtastic</th>
+                <th>Hardware Walkie-Talkies</th>
+                <th>Satellite Pucks</th>
+                <th class="highlight-column">VOIS P2P (Ours)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="feature-label">Infrastructure Needed</td>
+                <td>Cell Tower & Internet</td>
+                <td>Custom LoRa Nodes</td>
+                <td>Zero (Standalone)</td>
+                <td>Orbital Satellites</td>
+                <td class="highlight-column"><strong>ZERO (Everyday Phones)</strong></td>
+              </tr>
+              <tr>
+                <td class="feature-label">Civilian Hardware Cost</td>
+                <td>₹0 (Uses smartphone)</td>
+                <td>₹3,500 – ₹8,000</td>
+                <td>₹5,000 – ₹15,000</td>
+                <td>₹25,000 – ₹50,000</td>
+                <td class="highlight-column"><strong>₹0 (Existing Android)</strong></td>
+              </tr>
+              <tr>
+                <td class="feature-label">Monthly Subscription</td>
+                <td>Cellular Plan Required</td>
+                <td>None</td>
+                <td>None</td>
+                <td>₹2,000 – ₹5,000 / mo</td>
+                <td class="highlight-column"><strong>NONE (100% Free)</strong></td>
+              </tr>
+              <tr>
+                <td class="feature-label">Real-Time Voice Call</td>
+                <td>Yes (Dies with grid)</td>
+                <td>No (Text Only)</td>
+                <td>Yes (Half-duplex)</td>
+                <td>No (High Latency Data)</td>
+                <td class="highlight-column"><strong>YES (Full-Duplex & PTT)</strong></td>
+              </tr>
+              <tr>
+                <td class="feature-label">Panic SOS & Siren</td>
+                <td>None</td>
+                <td>Basic Text Broadcast</td>
+                <td>None</td>
+                <td>Delayed SOS Ping</td>
+                <td class="highlight-column"><strong>YES (DND Bypass + GPS)</strong></td>
+              </tr>
+              <tr>
+                <td class="feature-label">Offline App Distribution</td>
+                <td>Impossible without web</td>
+                <td>Requires PC Flashing</td>
+                <td>Physical Hand-off</td>
+                <td>Store Purchase</td>
+                <td class="highlight-column"><strong>YES (Radio APK Beamer)</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 8: DIRECT DOWNLOAD & INSTALLATION HUB -->
+    <section id="download" class="narrative-chapter download-section">
+      <div class="chapter-container">
+        <div class="download-card">
+          <div class="download-header">
+            <div class="download-badge-row">
+              <span class="release-badge">RELEASE v1.1.0+2</span>
+              <span class="verified-badge">PRODUCTION BUILD</span>
+            </div>
+            <h2 class="download-title">Download Vois for Android</h2>
+            <p class="download-subtitle">
+              Instant offline peer-to-peer radio communication. No phone numbers, no email addresses, no tracking, and zero servers.
+            </p>
+          </div>
+
+          <div class="download-action-box">
+            <a href="downloads/vois-v1.1.0+2.apk" class="btn btn-primary btn-large" download="vois-v1.1.0+2.apk">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+              </svg>
+              <span>Download Production APK (v1.1.0+2)</span>
+            </a>
+
+            <div class="apk-spec-grid">
+              <div class="apk-spec-item">
+                <span class="spec-label">File Name</span>
+                <span class="spec-val">vois-v1.1.0+2.apk</span>
+              </div>
+              <div class="apk-spec-item">
+                <span class="spec-label">File Size</span>
+                <span class="spec-val">49.4 MB (49,404,536 bytes)</span>
+              </div>
+              <div class="apk-spec-item">
+                <span class="spec-label">Compatibility</span>
+                <span class="spec-val">Android 8.0 (Oreo) or later</span>
+              </div>
+              <div class="apk-spec-item">
+                <span class="spec-label">Target Architecture</span>
+                <span class="spec-val">arm64-v8a / armeabi-v7a / x86_64</span>
+              </div>
+            </div>
+
+            <!-- SHA-256 Checksum Verification -->
+            <div class="checksum-container">
+              <div class="checksum-header">
+                <span class="checksum-title">SHA-256 Verification Hash</span>
+                <button id="copyHashBtn" class="copy-btn">Copy Hash</button>
+              </div>
+              <code class="checksum-code" id="shaCode">d16f263187ed8bc5f4b5549fa33f3b5d23dbc2ff4d06e4bdb442d9c7b00050ca</code>
+            </div>
+          </div>
+
+          <!-- Sideloading Instructions -->
+          <div class="install-instructions">
+            <h3 class="install-steps-title">3-Step Sideload Installation Guide</h3>
+            <div class="steps-grid">
+              <div class="step-card">
+                <div class="step-num">01</div>
+                <h4 class="step-head">Download the APK</h4>
+                <p class="step-body">Click the download button above directly from your Android browser. Tap <em>Open</em> once downloaded.</p>
+              </div>
+
+              <div class="step-card">
+                <div class="step-num">02</div>
+                <h4 class="step-head">Allow Unknown Sources</h4>
+                <p class="step-body">If prompted by Android security, allow installation from your browser (Settings &rarr; Install Unknown Apps &rarr; Allow).</p>
+              </div>
+
+              <div class="step-card">
+                <div class="step-num">03</div>
+                <h4 class="step-head">Grant Radio Permissions</h4>
+                <p class="step-body">Grant Wi-Fi Direct, Bluetooth, and Microphone permissions when opened. You are instantly ready to communicate off-grid.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Offline Beaming Card -->
+          <div class="offline-beaming-card">
+            <svg class="beaming-icon" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2">
+              <path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/>
+            </svg>
+            <div class="beaming-content">
+              <h4 class="beaming-title">How to Share Vois Completely Off-Grid</h4>
+              <p class="beaming-desc">
+                If the cell network is already down and friends or victims need the app, open Vois &rarr; tap the <strong>"Beam App Offline"</strong> icon. Nearby Android phones can connect directly to your temporary Wi-Fi hotspot and download the installer APK in under 30 seconds without a single byte of internet.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg class="logo-icon-sm" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="16" r="14" stroke="#10B981" stroke-width="2"/>
+            <circle cx="16" cy="16" r="8" stroke="#38BDF8" stroke-width="2"/>
+            <circle cx="16" cy="16" r="3" fill="#10B981"/>
+          </svg>
+          <span class="footer-brand-name">VOIS P2P</span>
+        </div>
+        <p class="footer-tagline">
+          The autonomous phone-to-peer radio voice network. Turning everyday smartphones into an indestructible lifeline when disaster strikes.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="#problem">The Breakdown</a></li>
+          <li><a href="#suffering">Human Toll</a></li>
+          <li><a href="#solution">Radio Engine</a></li>
+          <li><a href="#simulator">Live Mesh Simulator</a></li>
+          <li><a href="#architecture">Architecture</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">Resources</h4>
+        <ul class="footer-links">
+          <li><a href="downloads/vois-v1.1.0+2.apk" download>Download APK (v1.1.0+2)</a></li>
+          <li><a href="#business">Municipal Pilots & SDMA</a></li>
+          <li><a href="#download">Installation Guide</a></li>
+          <li><a href="https://github.com" target="_blank" rel="noopener">GitHub Project Repository</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">Privacy & Integrity</h4>
+        <p class="footer-privacy-text">
+          Vois is 100% peer-to-peer. No central servers, no user accounts, no telemetry tracking, and zero surveillance. Encrypted locally with AES-256.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Vois P2P Project. Built for humanity, disaster resilience, and off-grid voice communication.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
