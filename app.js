@@ -1,8 +1,8 @@
 /**
- * VOIS P2P LANDING PAGE INTERACTIVE ENGINE
+ * VOIS P2P LANDING PAGE INTERACTIVE ENGINE ("SIGNAL SKY" LIGHT THEME)
  * Features:
  * 1. Web Audio API radio sound synthesizer (Walkie-talkie squelch, mic click, roger beep, SOS siren)
- * 2. 2D Interactive Canvas Radio Mesh & Grid Blackout Simulator with drag-and-drop nodes
+ * 2. 2D Interactive Canvas Radio Mesh & Grid Blackout Simulator with drag-and-drop nodes (Daylight Mode)
  * 3. Interactive SOS payload inspection & DND bypass preview
  * 4. SHA-256 Checksum clipboard copy
  */
@@ -221,7 +221,7 @@
       playSosSiren();
       btnFireSos.textContent = sirenInterval ? 'Distress Siren Sounding... (Tap to Silence)' : 'Simulate SOS Distress Siren';
       if (btnFireSos.textContent.includes('Sounding')) {
-        btnFireSos.style.backgroundColor = '#EF4444';
+        btnFireSos.style.backgroundColor = '#DC2626';
         btnFireSos.style.color = '#FFFFFF';
       } else {
         btnFireSos.style.backgroundColor = '';
@@ -347,8 +347,8 @@
       const text = shaCode.textContent.trim();
       navigator.clipboard.writeText(text).then(() => {
         copyHashBtn.textContent = 'Copied!';
-        copyHashBtn.style.backgroundColor = '#10B981';
-        copyHashBtn.style.color = '#042F24';
+        copyHashBtn.style.backgroundColor = '#1D4ED8';
+        copyHashBtn.style.color = '#FFFFFF';
         setTimeout(() => {
           copyHashBtn.textContent = 'Copy Hash';
           copyHashBtn.style.backgroundColor = '';
@@ -359,7 +359,7 @@
   }
 
   // ---------------------------------------------------------------------------
-  // INTERACTIVE 2D CANVAS RADIO MESH SIMULATOR
+  // INTERACTIVE 2D CANVAS RADIO MESH SIMULATOR (DAYLIGHT AMBIENT MODE)
   // ---------------------------------------------------------------------------
   const canvas = document.getElementById('meshCanvas');
   if (!canvas) return;
@@ -378,7 +378,7 @@
       x: 450,
       y: 90,
       r: 26,
-      color: '#38BDF8',
+      color: '#1D4ED8',
       online: true,
       labelOffset: -40
     },
@@ -390,7 +390,7 @@
       x: 180,
       y: 300,
       r: 18,
-      color: '#EF4444',
+      color: '#DC2626',
       signal: 0,
       battery: 18
     },
@@ -402,7 +402,7 @@
       x: 450,
       y: 280,
       r: 18,
-      color: '#10B981',
+      color: '#059669',
       signal: 0,
       battery: 84
     },
@@ -414,7 +414,7 @@
       x: 720,
       y: 300,
       r: 18,
-      color: '#F59E0B',
+      color: '#D97706',
       signal: 0,
       battery: 92
     }
@@ -502,7 +502,6 @@
       blackoutBtnText.textContent = 'Restore Grid Power';
       simStateText.className = 'sim-state-value blackout';
       simStateText.textContent = 'GRID DOWN: Vois Radio Mesh Engaged';
-      // Auto trigger voice packet
       triggerVoicePacketPath();
     } else {
       btnToggleBlackout.classList.remove('active');
@@ -530,7 +529,7 @@
       progress: 0,
       speed: 0.025,
       nextHop: { fromX: relay.x, fromY: relay.y, toX: rescue.x, toY: rescue.y },
-      color: '#10B981',
+      color: '#1D4ED8',
       label: '323B ADPCM'
     });
   }
@@ -565,7 +564,6 @@
       blackoutBtnText.textContent = 'Simulate Grid Blackout';
       simStateText.className = 'sim-state-value normal';
       simStateText.textContent = 'Cellular Grid Online';
-      // Reset positions
       nodes[0].x = 450; nodes[0].y = 90;
       nodes[1].x = 180; nodes[1].y = 300;
       nodes[2].x = 450; nodes[2].y = 280;
@@ -586,8 +584,8 @@
     const relay = nodes.find((n) => n.id === 'relay');
     const rescue = nodes.find((n) => n.id === 'rescue');
 
-    // Draw background grid lines
-    ctx.strokeStyle = 'rgba(148, 163, 184, 0.05)';
+    // Draw background daylight grid lines
+    ctx.strokeStyle = '#E2E8F0';
     ctx.lineWidth = 1;
     for (let x = 0; x < canvas.width; x += 30) {
       ctx.beginPath();
@@ -607,7 +605,7 @@
       [victim, relay, rescue].forEach((target) => {
         ctx.beginPath();
         ctx.setLineDash([4, 6]);
-        ctx.strokeStyle = 'rgba(56, 189, 248, 0.35)';
+        ctx.strokeStyle = 'rgba(29, 78, 216, 0.25)';
         ctx.lineWidth = 1.5;
         ctx.moveTo(tower.x, tower.y);
         ctx.lineTo(target.x, target.y);
@@ -619,25 +617,25 @@
       const pulseR = (frameCount % 80) * 2;
       ctx.beginPath();
       ctx.arc(tower.x, tower.y, pulseR, 0, Math.PI * 2);
-      ctx.strokeStyle = `rgba(56, 189, 248, ${Math.max(0, 1 - pulseR / 160)})`;
+      ctx.strokeStyle = `rgba(29, 78, 216, ${Math.max(0, 0.5 - pulseR / 320)})`;
       ctx.lineWidth = 1.5;
       ctx.stroke();
     } else {
       // Tower is dead (Blackout)
-      ctx.fillStyle = 'rgba(239, 68, 68, 0.15)';
+      ctx.fillStyle = '#FEF2F2';
       ctx.fillRect(tower.x - 70, tower.y - 45, 140, 90);
-      ctx.strokeStyle = '#EF4444';
+      ctx.strokeStyle = '#FCA5A5';
       ctx.lineWidth = 1;
       ctx.strokeRect(tower.x - 70, tower.y - 45, 140, 90);
 
-      ctx.fillStyle = '#EF4444';
+      ctx.fillStyle = '#991B1B';
       ctx.font = '700 11px JetBrains Mono, monospace';
       ctx.textAlign = 'center';
       ctx.fillText('NO CARRIER / DEAD', tower.x, tower.y + 40);
 
       // Red X over tower
       ctx.beginPath();
-      ctx.strokeStyle = '#EF4444';
+      ctx.strokeStyle = '#DC2626';
       ctx.lineWidth = 3;
       ctx.moveTo(tower.x - 20, tower.y - 20);
       ctx.lineTo(tower.x + 20, tower.y + 20);
@@ -647,14 +645,13 @@
     }
 
     // 2. Vois P2P Radio Links (Wi-Fi Direct & Relays)
-    // Draw link between Victim and Relay
     const distVictimRelay = Math.hypot(victim.x - relay.x, victim.y - relay.y);
     const distRelayRescue = Math.hypot(relay.x - rescue.x, relay.y - rescue.y);
     const distDirect = Math.hypot(victim.x - rescue.x, victim.y - rescue.y);
 
     // Victim to Relay Link
     ctx.beginPath();
-    ctx.strokeStyle = isBlackout ? '#10B981' : 'rgba(16, 185, 129, 0.5)';
+    ctx.strokeStyle = isBlackout ? '#1D4ED8' : 'rgba(29, 78, 216, 0.4)';
     ctx.lineWidth = isBlackout ? 2.5 : 1.5;
     ctx.moveTo(victim.x, victim.y);
     ctx.lineTo(relay.x, relay.y);
@@ -662,36 +659,55 @@
 
     // Relay to Rescue Link
     ctx.beginPath();
-    ctx.strokeStyle = isBlackout ? '#10B981' : 'rgba(16, 185, 129, 0.5)';
+    ctx.strokeStyle = isBlackout ? '#1D4ED8' : 'rgba(29, 78, 216, 0.4)';
     ctx.lineWidth = isBlackout ? 2.5 : 1.5;
     ctx.moveTo(relay.x, relay.y);
     ctx.lineTo(rescue.x, rescue.y);
     ctx.stroke();
 
-    // Link labels
-    ctx.fillStyle = '#A7F3D0';
+    // Link labels with daylight pill background
     ctx.font = '600 10px JetBrains Mono, monospace';
     ctx.textAlign = 'center';
+    
+    // Label 1
     const mid1X = (victim.x + relay.x) / 2;
     const mid1Y = (victim.y + relay.y) / 2 - 12;
-    ctx.fillText(`Wi-Fi Direct: ${(distVictimRelay * 0.18).toFixed(0)}m`, mid1X, mid1Y);
+    ctx.fillStyle = '#EFF6FF';
+    ctx.fillRect(mid1X - 55, mid1Y - 10, 110, 16);
+    ctx.strokeStyle = '#BFDBFE';
+    ctx.strokeRect(mid1X - 55, mid1Y - 10, 110, 16);
+    ctx.fillStyle = '#1D4ED8';
+    ctx.fillText(`Wi-Fi Direct: ${(distVictimRelay * 0.18).toFixed(0)}m`, mid1X, mid1Y + 2);
 
+    // Label 2
     const mid2X = (relay.x + rescue.x) / 2;
     const mid2Y = (relay.y + rescue.y) / 2 - 12;
-    ctx.fillText(`Wi-Fi Direct: ${(distRelayRescue * 0.18).toFixed(0)}m`, mid2X, mid2Y);
+    ctx.fillStyle = '#EFF6FF';
+    ctx.fillRect(mid2X - 55, mid2Y - 10, 110, 16);
+    ctx.strokeStyle = '#BFDBFE';
+    ctx.strokeRect(mid2X - 55, mid2Y - 10, 110, 16);
+    ctx.fillStyle = '#1D4ED8';
+    ctx.fillText(`Wi-Fi Direct: ${(distRelayRescue * 0.18).toFixed(0)}m`, mid2X, mid2Y + 2);
 
-    // Direct link if nodes are brought close together (< 250px canvas dist)
+    // Direct link if nodes are close (< 260px)
     if (distDirect < 260) {
       ctx.beginPath();
-      ctx.strokeStyle = '#38BDF8';
+      ctx.strokeStyle = '#0284C7';
       ctx.lineWidth = 2;
       ctx.setLineDash([3, 3]);
       ctx.moveTo(victim.x, victim.y);
       ctx.lineTo(rescue.x, rescue.y);
       ctx.stroke();
       ctx.setLineDash([]);
-      ctx.fillStyle = '#38BDF8';
-      ctx.fillText(`DIRECT LINK: ${(distDirect * 0.18).toFixed(0)}m`, (victim.x + rescue.x) / 2, (victim.y + rescue.y) / 2 + 20);
+
+      const directMidX = (victim.x + rescue.x) / 2;
+      const directMidY = (victim.y + rescue.y) / 2 + 20;
+      ctx.fillStyle = '#F0F9FF';
+      ctx.fillRect(directMidX - 60, directMidY - 10, 120, 16);
+      ctx.strokeStyle = '#BAE6FD';
+      ctx.strokeRect(directMidX - 60, directMidY - 10, 120, 16);
+      ctx.fillStyle = '#0369A1';
+      ctx.fillText(`DIRECT LINK: ${(distDirect * 0.18).toFixed(0)}m`, directMidX, directMidY + 2);
     }
 
     // 3. Render In-flight Packets
@@ -705,21 +721,22 @@
       // Draw packet pulse
       ctx.beginPath();
       ctx.arc(currX, currY, 6, 0, Math.PI * 2);
-      ctx.fillStyle = '#34D399';
-      ctx.shadowColor = '#10B981';
-      ctx.shadowBlur = 12;
+      ctx.fillStyle = '#1D4ED8';
+      ctx.shadowColor = 'rgba(29, 78, 216, 0.4)';
+      ctx.shadowBlur = 8;
       ctx.fill();
       ctx.shadowBlur = 0;
 
-      // Packet label
+      // Packet label pill
+      ctx.fillStyle = '#1D4ED8';
+      ctx.fillRect(currX - 35, currY - 22, 70, 14);
       ctx.fillStyle = '#FFFFFF';
-      ctx.font = '700 9px JetBrains Mono, monospace';
-      ctx.fillText(p.label, currX, currY - 10);
+      ctx.font = '700 8.5px JetBrains Mono, monospace';
+      ctx.fillText(p.label, currX, currY - 12);
 
-      // When packet reaches destination
+      // Next hop
       if (p.progress >= 1) {
         if (p.nextHop) {
-          // Pass downstream to next hop (Zero-CPU relay)
           packets.push({
             fromX: p.nextHop.fromX,
             fromY: p.nextHop.fromY,
@@ -728,7 +745,7 @@
             progress: 0,
             speed: p.speed,
             nextHop: null,
-            color: '#F59E0B',
+            color: '#1D4ED8',
             label: 'ZERO-CPU RELAY'
           });
         }
@@ -741,13 +758,13 @@
       // Node halo
       ctx.beginPath();
       ctx.arc(n.x, n.y, n.r + 4, 0, Math.PI * 2);
-      ctx.fillStyle = n.type === 'tower' ? (n.online ? 'rgba(56, 189, 248, 0.15)' : 'rgba(239, 68, 68, 0.1)') : 'rgba(255, 255, 255, 0.08)';
+      ctx.fillStyle = n.type === 'tower' ? (n.online ? 'rgba(29, 78, 216, 0.08)' : 'rgba(220, 38, 38, 0.08)') : 'rgba(15, 23, 42, 0.04)';
       ctx.fill();
 
       // Node core
       ctx.beginPath();
       ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-      ctx.fillStyle = n.type === 'tower' ? (n.online ? '#0C4A6E' : '#27272A') : '#0F172A';
+      ctx.fillStyle = n.type === 'tower' ? (n.online ? '#EFF6FF' : '#F1F5F9') : '#FFFFFF';
       ctx.strokeStyle = n.color;
       ctx.lineWidth = 2.5;
       ctx.stroke();
@@ -764,29 +781,29 @@
         ctx.fillText('📱', n.x, n.y);
       }
 
-      // Labels below node
-      ctx.fillStyle = '#FFFFFF';
-      ctx.font = '700 12px Plus Jakarta Sans, sans-serif';
+      // Labels below node (High Contrast Navy & Slate)
+      ctx.fillStyle = '#0F172A';
+      ctx.font = '700 12px Sora, sans-serif';
       ctx.fillText(n.name, n.x, n.y + n.r + 18);
 
       if (n.sub) {
-        ctx.fillStyle = '#94A3B8';
-        ctx.font = '500 10px JetBrains Mono, monospace';
+        ctx.fillStyle = '#475569';
+        ctx.font = '600 10px JetBrains Mono, monospace';
         ctx.fillText(n.sub, n.x, n.y + n.r + 32);
       }
     });
 
     // Top status banner on canvas
     if (isBlackout) {
-      ctx.fillStyle = 'rgba(6, 78, 59, 0.85)';
-      ctx.strokeStyle = '#10B981';
+      ctx.fillStyle = '#EFF6FF';
+      ctx.strokeStyle = '#BFDBFE';
       ctx.lineWidth = 1;
       ctx.beginPath();
       ctx.roundRect(canvas.width / 2 - 210, 15, 420, 32, 6);
       ctx.fill();
       ctx.stroke();
 
-      ctx.fillStyle = '#A7F3D0';
+      ctx.fillStyle = '#1D4ED8';
       ctx.font = '700 11px JetBrains Mono, monospace';
       ctx.textAlign = 'center';
       ctx.fillText('VOIS AUTONOMOUS MESH ACTIVE • ZERO-CPU RELAY ENGAGED', canvas.width / 2, 35);
