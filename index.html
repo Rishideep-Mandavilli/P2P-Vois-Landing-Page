@@ -14,33 +14,29 @@
 
   <!-- Navigation -->
   <header class="site-header">
-    <div class="nav-container">
-      <a href="#" class="brand-logo">
-        <svg class="logo-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-          <circle cx="16" cy="16" r="14" stroke="#1D4ED8" stroke-width="2" stroke-dasharray="2 3"/>
-          <circle cx="16" cy="16" r="8" stroke="#0284C7" stroke-width="2"/>
-          <circle cx="16" cy="16" r="3" fill="#1D4ED8"/>
-          <path d="M16 4V1M16 31V28M4 16H1M31 16H28" stroke="#1D4ED8" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-        <span class="brand-name">VOIS</span>
-        <span class="brand-tag">P2P RADIO</span>
+    <div class="header-container">
+      <a href="#" class="brand-lockup" aria-label="Vois - Offline Peer-to-Peer Voice">
+        <img src="assets/app-logo.png" alt="Vois App Icon" class="brand-icon" width="34" height="34" />
+        <span class="brand-wordmark">Vois</span>
+        <span class="brand-version-pill">v1.1</span>
       </a>
 
-      <div class="network-status-badge">
-        <span class="status-dot"></span>
-        <span class="status-label">Autonomous Radio Mesh Active</span>
-      </div>
-
-      <nav class="main-nav">
-        <a href="#problem" class="nav-link">The Breakdown</a>
-        <a href="#suffering" class="nav-link">Human Toll</a>
-        <a href="#solution" class="nav-link">Radio Engine</a>
-        <a href="#simulator" class="nav-link">Live Mesh Simulator</a>
-        <a href="#architecture" class="nav-link">Architecture</a>
-        <a href="#impact" class="nav-link">Impact</a>
-        <a href="#business" class="nav-link">Business & Scale</a>
-        <a href="#download" class="nav-cta">Download APK</a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="#problem" class="nav-anchor">Breakdown</a>
+        <a href="#solution" class="nav-anchor">Engine</a>
+        <a href="#simulator" class="nav-anchor">Simulator</a>
+        <a href="#architecture" class="nav-anchor">Architecture</a>
+        <a href="#impact" class="nav-anchor">Impact</a>
       </nav>
+
+      <div class="header-actions">
+        <a href="#download" class="header-cta">
+          <svg class="header-cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+          </svg>
+          <span>Download APK</span>
+        </a>
+      </div>
     </div>
   </header>
 
@@ -676,6 +672,7 @@
         <div class="download-card">
           <div class="download-header">
             <div class="download-badge-row">
+              <img src="assets/app-logo.png" alt="Vois App Icon" class="download-app-icon" width="36" height="36" />
               <span class="release-badge">RELEASE v1.1.0+2</span>
               <span class="verified-badge">PRODUCTION BUILD</span>
             </div>
@@ -769,12 +766,8 @@
     <div class="footer-container">
       <div class="footer-brand">
         <div class="footer-logo">
-          <svg class="logo-icon-sm" viewBox="0 0 32 32" fill="none">
-            <circle cx="16" cy="16" r="14" stroke="#1D4ED8" stroke-width="2"/>
-            <circle cx="16" cy="16" r="8" stroke="#0284C7" stroke-width="2"/>
-            <circle cx="16" cy="16" r="3" fill="#1D4ED8"/>
-          </svg>
-          <span class="footer-brand-name">VOIS P2P</span>
+          <img src="assets/app-logo.png" alt="Vois App Icon" class="footer-app-icon" width="28" height="28" />
+          <span class="footer-brand-name">Vois P2P</span>
         </div>
         <p class="footer-tagline">
           The autonomous phone-to-peer radio voice network. Turning everyday smartphones into an indestructible lifeline when disaster strikes.
